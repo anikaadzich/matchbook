@@ -388,7 +388,207 @@ input[type="email"]::placeholder { color: var(--muted); }
   letter-spacing: 0.03em;
 }
 
-/* FOOTER */
+/* TIERS */
+.tiers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 96px;
+}
+
+.tier {
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tier-free {
+  background: white;
+  border: 1px solid var(--border2);
+}
+
+.tier-paid {
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.tier-paid::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+}
+
+.tier-badge {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.tier-paid .tier-badge { color: var(--gold); }
+
+.tier-price {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.tier-paid .tier-price { color: var(--bg); }
+
+.tier-price span {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+  margin-left: 2px;
+  font-family: var(--sans);
+}
+
+.tier-paid .tier-price span { color: rgba(247,244,239,0.4); }
+
+.tier-desc {
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.6;
+  font-weight: 300;
+  flex: 1;
+}
+
+.tier-paid .tier-desc { color: rgba(247,244,239,0.65); }
+
+.tier-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tier-feature {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 300;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.tier-paid .tier-feature { color: rgba(247,244,239,0.5); }
+
+.tier-feature::before {
+  content: '—';
+  color: var(--border2);
+  flex-shrink: 0;
+  font-size: 11px;
+  margin-top: 1px;
+}
+
+.tier-paid .tier-feature::before { color: rgba(232,168,78,0.4); }
+
+.tier-btn {
+  width: 100%;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  text-align: center;
+  border: none;
+  letter-spacing: 0.01em;
+}
+
+.tier-btn:active { transform: scale(0.98); }
+.tier-btn:hover { opacity: 0.85; }
+
+.tier-btn-free {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.tier-btn-paid {
+  background: var(--gold);
+  color: white;
+}
+
+.tier-input {
+  width: 100%;
+  background: rgba(247,244,239,0.08);
+  border: 1px solid rgba(247,244,239,0.15);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--bg);
+  outline: none;
+  transition: border-color 0.2s;
+  font-weight: 300;
+  -webkit-appearance: none;
+  margin-bottom: 8px;
+}
+
+.tier-input:focus { border-color: rgba(247,244,239,0.35); }
+.tier-input::placeholder { color: rgba(247,244,239,0.3); }
+
+.tier-free-input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+  font-weight: 300;
+  -webkit-appearance: none;
+  margin-bottom: 8px;
+}
+
+.tier-free-input:focus { border-color: var(--ink); }
+.tier-free-input::placeholder { color: var(--muted); }
+
+.tier-success {
+  display: none;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.tier-success-icon {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.tier-success-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.tier-success-sub {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.tier-paid .tier-success-title { color: var(--bg); }
+.tier-paid .tier-success-sub { color: rgba(247,244,239,0.45); }
+
+@media (max-width: 500px) {
+  .tiers { grid-template-columns: 1fr; }
+}
 footer {
   border-top: 1px solid var(--border);
   padding: 24px 0 40px;
@@ -446,24 +646,53 @@ footer {
     <p class="hero-body">Matchbook finds the pre-seed investors most likely to back your startup — filtered by thesis, portfolio fit, and competitor conflicts. Built for founders who can't afford to waste time.</p>
   </div>
 
-  <div class="waitlist" id="waitlist-card">
-    <div class="waitlist-title">Get early access</div>
-    <div class="waitlist-sub">First 100 founders get free access at launch.</div>
-    <div id="form-state">
-      <div class="input-row">
-        <input type="email" id="email-input" placeholder="your@startup.com" />
-        <button class="btn" id="submit-btn" onclick="handleSignup()">
-          <span id="btn-label">Join waitlist →</span>
-        </button>
+  <div class="tiers">
+
+    <!-- FREE TIER -->
+    <div class="tier tier-free">
+      <div class="tier-badge">Waitlist</div>
+      <div class="tier-price">Free</div>
+      <div class="tier-desc">Get early access when we launch. First 100 founders in get free access.</div>
+      <div class="tier-features">
+        <div class="tier-feature">Full investor matching on launch</div>
+        <div class="tier-feature">Cap table warm path mapping</div>
+        <div class="tier-feature">Conflict detection</div>
       </div>
-      <div class="form-note">Free to join · No spam · Early access pricing locked in</div>
-      <div class="error-msg" id="error-msg">Please enter a valid email address.</div>
+      <div id="free-form">
+        <input type="email" class="tier-free-input" id="free-email" placeholder="your@startup.com" />
+        <button class="tier-btn tier-btn-free" onclick="handleFree()">Join waitlist →</button>
+        <div class="error-msg" id="free-error" style="margin-top:6px;">Please enter a valid email.</div>
+      </div>
+      <div class="tier-success" id="free-success">
+        <div class="tier-success-icon">✓</div>
+        <div class="tier-success-title">You're on the list.</div>
+        <div class="tier-success-sub">We'll reach out when early access opens.</div>
+      </div>
     </div>
-    <div class="success-state" id="success-state">
-      <div class="success-check">✓</div>
-      <div class="success-title">You're on the list.</div>
-      <div class="success-sub">We'll reach out when early access opens.</div>
+
+    <!-- PAID TIER -->
+    <div class="tier tier-paid">
+      <div class="tier-badge">Get it now</div>
+      <div class="tier-price">$10<span>one time</span></div>
+      <div class="tier-desc">Paste your startup URL. Get 5 active investors in your sector with conflict flags — delivered within 24 hours.</div>
+      <div class="tier-features">
+        <div class="tier-feature">5 matched investors, hand-researched</div>
+        <div class="tier-feature">Competitor conflict flags</div>
+        <div class="tier-feature">Delivered in 24 hours</div>
+      </div>
+      <div id="paid-form">
+        <input type="text" class="tier-input" id="paid-url" placeholder="your startup URL" />
+        <input type="email" class="tier-input" id="paid-email" placeholder="your@startup.com" />
+        <button class="tier-btn tier-btn-paid" onclick="handlePaid()">Get my investors — $10 →</button>
+        <div class="error-msg" id="paid-error" style="margin-top:6px;color:#fca5a5;">Please fill in both fields.</div>
+      </div>
+      <div class="tier-success" id="paid-success">
+        <div class="tier-success-icon">✓</div>
+        <div class="tier-success-title" style="color:var(--bg);">Payment received.</div>
+        <div class="tier-success-sub">Your investor list lands in your inbox within 24 hours.</div>
+      </div>
     </div>
+
   </div>
 
   <div class="problem-section">
@@ -531,36 +760,43 @@ footer {
 
 <script>
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbx_2O-vC3xCclR8MHzoI7JMh00NWGh6DqJCq5-h1fUthTGXKc1kKCJFQsfeKyY-3a-_-w/exec';
+const STRIPE_LINK = 'https://buy.stripe.com/REPLACE_WITH_YOUR_STRIPE_LINK';
 
 function isValidEmail(e) {
   return e.includes('@') && e.includes('.') && e.length > 5;
 }
 
-async function submitEmail(email) {
+async function submitToSheet(data) {
   try {
     await fetch(SHEET_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
+      body: JSON.stringify(data)
     });
   } catch(e) {}
 }
 
-function handleSignup() {
-  const email = document.getElementById('email-input').value.trim();
-  const error = document.getElementById('error-msg');
-  const btn = document.getElementById('submit-btn');
-  const label = document.getElementById('btn-label');
+function handleFree() {
+  const email = document.getElementById('free-email').value.trim();
+  const error = document.getElementById('free-error');
   error.style.display = 'none';
   if (!isValidEmail(email)) { error.style.display = 'block'; return; }
-  btn.disabled = true;
-  label.innerHTML = '<span class="spinner"></span>';
-  submitEmail(email);
-  setTimeout(() => {
-    document.getElementById('form-state').style.display = 'none';
-    document.getElementById('success-state').style.display = 'block';
-  }, 800);
+  submitToSheet({ email, type: 'waitlist' });
+  document.getElementById('free-form').style.display = 'none';
+  document.getElementById('free-success').style.display = 'block';
+}
+
+function handlePaid() {
+  const url = document.getElementById('paid-url').value.trim();
+  const email = document.getElementById('paid-email').value.trim();
+  const error = document.getElementById('paid-error');
+  error.style.display = 'none';
+  if (!url || !isValidEmail(email)) { error.style.display = 'block'; return; }
+  submitToSheet({ email, url, type: 'paid' });
+  window.open(STRIPE_LINK + '?prefilled_email=' + encodeURIComponent(email), '_blank');
+  document.getElementById('paid-form').style.display = 'none';
+  document.getElementById('paid-success').style.display = 'block';
 }
 
 function handleSignup2() {
@@ -570,7 +806,7 @@ function handleSignup2() {
   if (!isValidEmail(email)) return;
   btn.disabled = true;
   label.innerHTML = '<span class="spinner"></span>';
-  submitEmail(email);
+  submitToSheet({ email, type: 'waitlist' });
   setTimeout(() => {
     label.textContent = "You're on the list ✓";
     btn.style.background = '#2d6a4f';
@@ -578,7 +814,8 @@ function handleSignup2() {
   }, 800);
 }
 
-document.getElementById('email-input').addEventListener('keydown', e => { if (e.key === 'Enter') handleSignup(); });
+document.getElementById('free-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleFree(); });
+document.getElementById('paid-email').addEventListener('keydown', e => { if (e.key === 'Enter') handlePaid(); });
 document.getElementById('email-input-2').addEventListener('keydown', e => { if (e.key === 'Enter') handleSignup2(); });
 </script>
 </body>
