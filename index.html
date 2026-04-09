@@ -530,8 +530,21 @@ footer {
 </div>
 
 <script>
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbx_2O-vC3xCclR8MHzoI7JMh00NWGh6DqJCq5-h1fUthTGXKc1kKCJFQsfeKyY-3a-_-w/exec';
+
 function isValidEmail(e) {
   return e.includes('@') && e.includes('.') && e.length > 5;
+}
+
+async function submitEmail(email) {
+  try {
+    await fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+  } catch(e) {}
 }
 
 function handleSignup() {
@@ -543,8 +556,10 @@ function handleSignup() {
   if (!isValidEmail(email)) { error.style.display = 'block'; return; }
   btn.disabled = true;
   label.innerHTML = '<span class="spinner"></span>';
+  submitEmail(email);
   setTimeout(() => {
-    window.location.href = 'https://tally.so/r/Y5MWbd?email=' + encodeURIComponent(email);
+    document.getElementById('form-state').style.display = 'none';
+    document.getElementById('success-state').style.display = 'block';
   }, 800);
 }
 
@@ -555,8 +570,11 @@ function handleSignup2() {
   if (!isValidEmail(email)) return;
   btn.disabled = true;
   label.innerHTML = '<span class="spinner"></span>';
+  submitEmail(email);
   setTimeout(() => {
-    window.location.href = 'https://tally.so/r/Y5MWbd?email=' + encodeURIComponent(email);
+    label.textContent = "You're on the list ✓";
+    btn.style.background = '#2d6a4f';
+    document.getElementById('success-2').style.display = 'block';
   }, 800);
 }
 
