@@ -51,7 +51,6 @@ body::before {
   padding: 0 28px;
 }
 
-/* NAV */
 nav {
   display: flex;
   align-items: center;
@@ -97,7 +96,7 @@ h1 {
   font-weight: 300;
   line-height: 1.0;
   letter-spacing: -0.03em;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 h1 em { font-style: italic; }
@@ -108,239 +107,6 @@ h1 em { font-style: italic; }
   color: var(--ink2);
   max-width: 460px;
   font-weight: 300;
-}
-
-/* WAITLIST */
-.waitlist {
-  background: white;
-  border: 1px solid var(--border2);
-  border-radius: 14px;
-  padding: 28px;
-  margin-bottom: 96px;
-  box-shadow: 0 1px 32px rgba(26,24,20,0.05);
-}
-
-.waitlist-title {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 400;
-  margin-bottom: 4px;
-  letter-spacing: -0.02em;
-}
-
-.waitlist-sub {
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 300;
-  margin-bottom: 20px;
-}
-
-.input-row {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-input[type="email"] {
-  flex: 1;
-  background: var(--bg);
-  border: 1px solid var(--border2);
-  border-radius: 8px;
-  padding: 13px 15px;
-  font-family: var(--sans);
-  font-size: 14px;
-  color: var(--ink);
-  outline: none;
-  transition: border-color 0.2s, background 0.2s;
-  font-weight: 300;
-  -webkit-appearance: none;
-}
-
-input[type="email"]:focus { border-color: var(--ink); background: white; }
-input[type="email"]::placeholder { color: var(--muted); }
-
-.btn {
-  background: var(--ink);
-  color: var(--bg);
-  border: none;
-  border-radius: 8px;
-  padding: 13px 20px;
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: opacity 0.2s, transform 0.1s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-width: 152px;
-}
-
-.btn:hover { opacity: 0.85; }
-.btn:active { transform: scale(0.98); }
-.btn:disabled { opacity: 0.45; cursor: not-allowed; }
-
-.form-note {
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 0.03em;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.form-note::before { content: '✦'; color: var(--gold); font-size: 9px; }
-
-.error-msg {
-  font-size: 12px;
-  color: #ef4444;
-  margin-top: 8px;
-  display: none;
-}
-
-.success-state {
-  display: none;
-  text-align: center;
-  padding: 12px 0;
-}
-
-.success-check {
-  width: 40px;
-  height: 40px;
-  background: #f0faf4;
-  border: 1px solid #a3d9b1;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 12px;
-  color: #2d6a4f;
-  font-size: 16px;
-}
-
-.success-title {
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 400;
-  margin-bottom: 4px;
-  letter-spacing: -0.02em;
-}
-
-.success-sub {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-  font-weight: 300;
-}
-
-/* SECTION LABEL */
-.section-label {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 500;
-  margin-bottom: 28px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.section-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border2);
-}
-
-/* HOW */
-.how-section { margin-bottom: 88px; }
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.feature-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 18px;
-  transition: border-color 0.2s;
-}
-
-.feature-card:hover { border-color: var(--border2); }
-
-.feature-num {
-  font-family: var(--serif);
-  font-size: 12px;
-  color: var(--gold);
-  margin-bottom: 8px;
-  font-style: italic;
-}
-
-.feature-title {
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.feature-desc {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-  font-weight: 300;
-}
-
-/* DARK CTA */
-.dark-cta {
-  background: var(--ink);
-  border-radius: 14px;
-  padding: 48px 40px;
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.dark-cta h2 {
-  font-family: var(--serif);
-  font-size: clamp(28px, 5vw, 40px);
-  font-weight: 300;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
-  color: var(--bg);
-  margin-bottom: 32px;
-}
-
-.dark-cta h2 em { font-style: italic; color: var(--gold2); }
-
-.dark-form {
-  display: flex;
-  gap: 8px;
-  max-width: 400px;
-  margin: 0 auto 10px;
-}
-
-.dark-form input[type="email"] {
-  background: rgba(247,244,239,0.1);
-  border: 1px solid rgba(247,244,239,0.2);
-  color: var(--bg);
-}
-
-.dark-form input[type="email"]:focus {
-  background: rgba(247,244,239,0.15);
-  border-color: rgba(247,244,239,0.4);
-}
-
-.dark-form input[type="email"]::placeholder { color: rgba(247,244,239,0.35); }
-
-.dark-note {
-  font-size: 11px;
-  color: rgba(247,244,239,0.35);
-  letter-spacing: 0.03em;
 }
 
 /* TIERS */
@@ -401,10 +167,10 @@ input[type="email"]::placeholder { color: var(--muted); }
 .tier-paid .tier-price { color: var(--bg); }
 
 .tier-price span {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 300;
   color: var(--muted);
-  margin-left: 2px;
+  margin-left: 3px;
   font-family: var(--sans);
 }
 
@@ -464,6 +230,7 @@ input[type="email"]::placeholder { color: var(--muted); }
 
 .tier-btn:active { transform: scale(0.98); }
 .tier-btn:hover { opacity: 0.85; }
+.tier-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
 .tier-btn-free {
   background: var(--ink);
@@ -519,10 +286,7 @@ input[type="email"]::placeholder { color: var(--muted); }
   padding: 8px 0;
 }
 
-.tier-success-icon {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
+.tier-success-icon { font-size: 20px; margin-bottom: 8px; }
 
 .tier-success-title {
   font-family: var(--serif);
@@ -541,9 +305,202 @@ input[type="email"]::placeholder { color: var(--muted); }
 .tier-paid .tier-success-title { color: var(--bg); }
 .tier-paid .tier-success-sub { color: rgba(247,244,239,0.45); }
 
-@media (max-width: 500px) {
-  .tiers { grid-template-columns: 1fr; }
+.error-msg {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 6px;
+  display: none;
 }
+
+/* SECTION LABEL */
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border2);
+}
+
+/* HOW IT WORKS */
+.how-section { margin-bottom: 88px; }
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.step {
+  background: white;
+  padding: 20px 22px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  transition: background 0.15s;
+}
+
+.step:hover { background: #fdfcfa; }
+
+.step-num {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--gold);
+  font-style: italic;
+  min-width: 20px;
+  margin-top: 1px;
+}
+
+.step-body { flex: 1; }
+
+.step-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.step-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* COMING SOON */
+.coming-section { margin-bottom: 88px; }
+
+.coming-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.coming-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.coming-card:hover { opacity: 0.85; }
+
+.coming-soon-tag {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.coming-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.coming-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+/* DARK CTA */
+.dark-cta {
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 48px 40px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.dark-cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--bg);
+  margin-bottom: 32px;
+}
+
+.dark-cta h2 em { font-style: italic; color: var(--gold2); }
+
+.dark-form {
+  display: flex;
+  gap: 8px;
+  max-width: 400px;
+  margin: 0 auto 10px;
+}
+
+.dark-form input[type="email"] {
+  flex: 1;
+  background: rgba(247,244,239,0.1);
+  border: 1px solid rgba(247,244,239,0.2);
+  border-radius: 8px;
+  padding: 13px 15px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--bg);
+  outline: none;
+  transition: border-color 0.2s;
+  font-weight: 300;
+  -webkit-appearance: none;
+}
+
+.dark-form input[type="email"]:focus { border-color: rgba(247,244,239,0.4); }
+.dark-form input[type="email"]::placeholder { color: rgba(247,244,239,0.35); }
+
+.btn {
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  padding: 13px 20px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 152px;
+}
+
+.btn:hover { opacity: 0.85; }
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.dark-note {
+  font-size: 11px;
+  color: rgba(247,244,239,0.35);
+  letter-spacing: 0.03em;
+}
+
+/* FOOTER */
 footer {
   border-top: 1px solid var(--border);
   padding: 24px 0 40px;
@@ -576,11 +533,20 @@ footer {
   animation: spin 0.7s linear infinite;
 }
 
+.spinner-dark {
+  width: 13px;
+  height: 13px;
+  border: 2px solid rgba(26,24,20,0.2);
+  border-top-color: var(--bg);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
 @keyframes spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 500px) {
-  .feature-grid { grid-template-columns: 1fr; }
-  .input-row { flex-direction: column; }
+  .tiers { grid-template-columns: 1fr; }
+  .coming-grid { grid-template-columns: 1fr; }
   .dark-form { flex-direction: column; }
   .btn { width: 100%; }
   .dark-cta { padding: 36px 24px; }
@@ -597,8 +563,8 @@ footer {
   </nav>
 
   <div class="hero">
-    <h1>Stop cold emailing<br>the <em>wrong</em><br>investors.</h1>
-    <p class="hero-body">Matchbook aggregates investor data from Crunchbase, LinkedIn, Pitchbook, and more — so founders can find the right investors faster, without the guesswork.</p>
+    <h1>Know exactly<br>who to email<br><em>before you send.</em></h1>
+    <p class="hero-body">Matchbook aggregates investor data from across the web so pre-seed founders can find the right investors faster — with thesis fit, portfolio context, and warm paths from their own cap table.</p>
   </div>
 
   <div class="tiers">
@@ -609,14 +575,16 @@ footer {
       <div class="tier-price">Free</div>
       <div class="tier-desc">Get early access when we launch. First 100 founders in get free access.</div>
       <div class="tier-features">
-        <div class="tier-feature">Aggregated investor data in one place</div>
-        <div class="tier-feature">Thesis, portfolio, and check size matching</div>
-        <div class="tier-feature">Warm path mapping from your cap table</div>
+        <div class="tier-feature">Full investor matching on launch</div>
+        <div class="tier-feature">Cap table warm path mapping</div>
+        <div class="tier-feature">Conflict detection & CRM tracker</div>
       </div>
       <div id="free-form">
         <input type="email" class="tier-free-input" id="free-email" placeholder="your@startup.com" />
-        <button class="tier-btn tier-btn-free" onclick="handleFree()">Join waitlist →</button>
-        <div class="error-msg" id="free-error" style="margin-top:6px;">Please enter a valid email.</div>
+        <button class="tier-btn tier-btn-free" onclick="handleFree()">
+          <span id="free-btn-label">Join waitlist →</span>
+        </button>
+        <div class="error-msg" id="free-error">Please enter a valid email.</div>
       </div>
       <div class="tier-success" id="free-success">
         <div class="tier-success-icon">✓</div>
@@ -628,59 +596,93 @@ footer {
     <!-- PAID TIER -->
     <div class="tier tier-paid">
       <div class="tier-badge">Get it now</div>
-      <div class="tier-price">$10<span>one time</span></div>
-      <div class="tier-desc">Paste your startup URL. Get 5 hand-researched, best-fit investors with thesis match, portfolio data, and warm path — delivered within 24 hours.</div>
+      <div class="tier-price">$29<span>one time</span></div>
+      <div class="tier-desc">Submit your startup. Get a hand-researched report of your 5 best-fit investors — delivered to your inbox within 24 hours.</div>
       <div class="tier-features">
-        <div class="tier-feature">5 matched investors, hand-researched</div>
-        <div class="tier-feature">Thesis fit, check size, and portfolio context</div>
-        <div class="tier-feature">Delivered in 24 hours</div>
+        <div class="tier-feature">5 investors matched to your thesis</div>
+        <div class="tier-feature">Portfolio context & check size data</div>
+        <div class="tier-feature">Warm path & outreach notes included</div>
       </div>
       <div id="paid-form">
         <input type="text" class="tier-input" id="paid-url" placeholder="your startup URL" />
         <input type="email" class="tier-input" id="paid-email" placeholder="your@startup.com" />
-        <button class="tier-btn tier-btn-paid" onclick="handlePaid()">Get my investors — $10 →</button>
-        <div class="error-msg" id="paid-error" style="margin-top:6px;color:#fca5a5;">Please fill in both fields.</div>
+        <button class="tier-btn tier-btn-paid" onclick="handlePaid()">
+          <span id="paid-btn-label">Get my report — $29 →</span>
+        </button>
+        <div class="error-msg" id="paid-error" style="color:#fca5a5;">Please fill in both fields.</div>
       </div>
       <div class="tier-success" id="paid-success">
         <div class="tier-success-icon">✓</div>
-        <div class="tier-success-title" style="color:var(--bg);">Payment received.</div>
-        <div class="tier-success-sub">Your investor list lands in your inbox within 24 hours.</div>
+        <div class="tier-success-title" style="color:var(--bg);">You're in.</div>
+        <div class="tier-success-sub">Your investor report lands in your inbox within 24 hours.</div>
       </div>
     </div>
 
   </div>
 
+  <!-- HOW IT WORKS -->
   <div class="how-section">
     <div class="section-label">How it works</div>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-num">01</div>
-        <div class="feature-title">Describe your startup</div>
-        <div class="feature-desc">Sector, stage, geography, traction. 60 seconds.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <div class="step-title">Tell us about your startup</div>
+          <div class="step-desc">Drop your URL and we pull the context — sector, stage, geography. No lengthy forms.</div>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-num">02</div>
-        <div class="feature-title">We aggregate the data</div>
-        <div class="feature-desc">Crunchbase, LinkedIn, Pitchbook, Crustdata — pulled into one clean view.</div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <div class="step-title">We do the research</div>
+          <div class="step-desc">We aggregate data from Crunchbase, LinkedIn, Pitchbook, and more — pulling thesis, recent deals, check sizes, and portfolio into one view.</div>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-num">03</div>
-        <div class="feature-title">Get matched investors</div>
-        <div class="feature-desc">Ranked by thesis fit, check size, recent activity, and warm paths from your cap table.</div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <div class="step-title">Get a shortlist built for you</div>
+          <div class="step-desc">Ranked by fit. Filtered for conflicts. Mapped to warm paths through your existing cap table. Not a generic list — yours.</div>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-num">04</div>
-        <div class="feature-title">Move fast</div>
-        <div class="feature-desc">Personalised outreach copy included. Know exactly who to contact and why.</div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <div class="step-title">Go into every meeting prepared</div>
+          <div class="step-desc">Know what each investor has backed, what they care about, and exactly why you're relevant to them before you send a single email.</div>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- COMING SOON -->
+  <div class="coming-section">
+    <div class="section-label">Coming soon</div>
+    <div class="coming-grid">
+      <div class="coming-card">
+        <span class="coming-soon-tag">In development</span>
+        <div class="coming-title">Chrome extension</div>
+        <div class="coming-desc">Visit any founder's LinkedIn and instantly see who has invested in them.</div>
+      </div>
+      <div class="coming-card">
+        <span class="coming-soon-tag">In development</span>
+        <div class="coming-title">Monthly plan</div>
+        <div class="coming-desc">Live investor database with real-time updates on new deals and fund activity.</div>
+      </div>
+      <div class="coming-card">
+        <span class="coming-soon-tag">In development</span>
+        <div class="coming-title">Raise CRM</div>
+        <div class="coming-desc">Track every investor you've reached out to. Never lose momentum mid-raise.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DARK CTA -->
   <div class="dark-cta">
     <h2>Your next investor<br>is <em>already out there.</em></h2>
     <div class="dark-form">
       <input type="email" id="email-input-2" placeholder="your@startup.com" />
-      <button class="btn" id="submit-btn-2" onclick="handleSignup2()">
+      <button class="btn" style="background:var(--gold);color:white;" id="submit-btn-2" onclick="handleSignup2()">
         <span id="btn-label-2">Get early access →</span>
       </button>
     </div>
@@ -717,23 +719,31 @@ async function submitToSheet(data) {
 function handleFree() {
   const email = document.getElementById('free-email').value.trim();
   const error = document.getElementById('free-error');
+  const label = document.getElementById('free-btn-label');
   error.style.display = 'none';
   if (!isValidEmail(email)) { error.style.display = 'block'; return; }
+  label.innerHTML = '<span class="spinner-dark"></span>';
   submitToSheet({ email, type: 'waitlist' });
-  document.getElementById('free-form').style.display = 'none';
-  document.getElementById('free-success').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('free-form').style.display = 'none';
+    document.getElementById('free-success').style.display = 'block';
+  }, 800);
 }
 
 function handlePaid() {
   const url = document.getElementById('paid-url').value.trim();
   const email = document.getElementById('paid-email').value.trim();
   const error = document.getElementById('paid-error');
+  const label = document.getElementById('paid-btn-label');
   error.style.display = 'none';
   if (!url || !isValidEmail(email)) { error.style.display = 'block'; return; }
+  label.innerHTML = '<span class="spinner"></span>';
   submitToSheet({ email, url, type: 'paid' });
-  window.open(STRIPE_LINK + '?prefilled_email=' + encodeURIComponent(email), '_blank');
-  document.getElementById('paid-form').style.display = 'none';
-  document.getElementById('paid-success').style.display = 'block';
+  setTimeout(() => {
+    window.open(STRIPE_LINK + '?prefilled_email=' + encodeURIComponent(email), '_blank');
+    document.getElementById('paid-form').style.display = 'none';
+    document.getElementById('paid-success').style.display = 'block';
+  }, 800);
 }
 
 function handleSignup2() {
