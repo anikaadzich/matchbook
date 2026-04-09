@@ -544,8 +544,7 @@ function handleSignup() {
   btn.disabled = true;
   label.innerHTML = '<span class="spinner"></span>';
   setTimeout(() => {
-    document.getElementById('form-state').style.display = 'none';
-    document.getElementById('success-state').style.display = 'block';
+    window.location.href = 'https://tally.so/r/Y5MWbd?email=' + encodeURIComponent(email);
   }, 800);
 }
 
@@ -557,9 +556,7 @@ function handleSignup2() {
   btn.disabled = true;
   label.innerHTML = '<span class="spinner"></span>';
   setTimeout(() => {
-    label.textContent = "You're on the list ✓";
-    btn.style.background = '#2d6a4f';
-    document.getElementById('success-2').style.display = 'block';
+    window.location.href = 'https://tally.so/r/Y5MWbd?email=' + encodeURIComponent(email);
   }, 800);
 }
 
