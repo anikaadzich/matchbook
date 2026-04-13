@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matchbook — Find your investors</title>
+<title>Matchbook — The future of fundraising</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -51,12 +51,13 @@ body::before {
   padding: 0 28px;
 }
 
+/* NAV */
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 32px 0 0;
-  margin-bottom: 112px;
+  margin-bottom: 120px;
 }
 
 .logo {
@@ -88,56 +89,61 @@ nav {
 }
 
 /* HERO */
-.hero { margin-bottom: 72px; }
+.hero { margin-bottom: 64px; }
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--gold);
+}
 
 h1 {
   font-family: var(--serif);
-  font-size: clamp(52px, 10vw, 76px);
+  font-size: clamp(48px, 9vw, 72px);
   font-weight: 300;
-  line-height: 1.0;
+  line-height: 1.02;
   letter-spacing: -0.03em;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 h1 em { font-style: italic; }
 
 .hero-body {
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.85;
   color: var(--ink2);
-  max-width: 460px;
+  max-width: 520px;
   font-weight: 300;
+  margin-bottom: 48px;
 }
 
-/* TIERS */
-.tiers {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 96px;
-}
-
-.tier {
-  border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.tier-free {
+/* WAITLIST */
+.waitlist-card {
   background: white;
   border: 1px solid var(--border2);
-}
-
-.tier-paid {
-  background: var(--ink);
-  border: 1px solid var(--ink);
+  border-radius: 14px;
+  padding: 32px;
+  margin-bottom: 100px;
+  box-shadow: 0 1px 32px rgba(26,24,20,0.05);
   position: relative;
   overflow: hidden;
 }
 
-.tier-paid::before {
+.waitlist-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -145,174 +151,124 @@ h1 em { font-style: italic; }
   background: var(--gold);
 }
 
-.tier-badge {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--muted);
-}
-
-.tier-paid .tier-badge { color: var(--gold); }
-
-.tier-price {
+.waitlist-title {
   font-family: var(--serif);
-  font-size: 36px;
-  font-weight: 300;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 6px;
   letter-spacing: -0.02em;
-  line-height: 1;
-  color: var(--ink);
 }
 
-.tier-paid .tier-price { color: var(--bg); }
-
-.tier-price span {
+.waitlist-sub {
   font-size: 13px;
-  font-weight: 300;
   color: var(--muted);
-  margin-left: 3px;
-  font-family: var(--sans);
-}
-
-.tier-paid .tier-price span { color: rgba(247,244,239,0.4); }
-
-.tier-desc {
-  font-size: 13px;
-  color: var(--ink2);
+  font-weight: 300;
+  margin-bottom: 24px;
   line-height: 1.6;
-  font-weight: 300;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+input[type="email"], input[type="text"] {
   flex: 1;
-}
-
-.tier-paid .tier-desc { color: rgba(247,244,239,0.65); }
-
-.tier-features {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.tier-feature {
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 300;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  line-height: 1.5;
-}
-
-.tier-paid .tier-feature { color: rgba(247,244,239,0.5); }
-
-.tier-feature::before {
-  content: '—';
-  color: var(--border2);
-  flex-shrink: 0;
-  font-size: 11px;
-  margin-top: 1px;
-}
-
-.tier-paid .tier-feature::before { color: rgba(232,168,78,0.4); }
-
-.tier-btn {
-  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border2);
   border-radius: 8px;
-  padding: 12px 16px;
+  padding: 13px 15px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  font-weight: 300;
+  -webkit-appearance: none;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus { border-color: var(--ink); background: white; }
+input::placeholder { color: var(--muted); }
+
+.btn {
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  padding: 13px 22px;
   font-family: var(--sans);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
+  white-space: nowrap;
   transition: opacity 0.2s, transform 0.1s;
-  text-align: center;
-  border: none;
-  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 160px;
 }
 
-.tier-btn:active { transform: scale(0.98); }
-.tier-btn:hover { opacity: 0.85; }
-.tier-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn:hover { opacity: 0.85; }
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
-.tier-btn-free {
-  background: var(--ink);
-  color: var(--bg);
-}
-
-.tier-btn-paid {
-  background: var(--gold);
-  color: white;
-}
-
-.tier-input {
-  width: 100%;
-  background: rgba(247,244,239,0.08);
-  border: 1px solid rgba(247,244,239,0.15);
-  border-radius: 8px;
-  padding: 11px 14px;
-  font-family: var(--sans);
-  font-size: 13px;
-  color: var(--bg);
-  outline: none;
-  transition: border-color 0.2s;
-  font-weight: 300;
-  -webkit-appearance: none;
-  margin-bottom: 8px;
-}
-
-.tier-input:focus { border-color: rgba(247,244,239,0.35); }
-.tier-input::placeholder { color: rgba(247,244,239,0.3); }
-
-.tier-free-input {
-  width: 100%;
-  background: var(--bg);
-  border: 1px solid var(--border2);
-  border-radius: 8px;
-  padding: 11px 14px;
-  font-family: var(--sans);
-  font-size: 13px;
-  color: var(--ink);
-  outline: none;
-  transition: border-color 0.2s;
-  font-weight: 300;
-  -webkit-appearance: none;
-  margin-bottom: 8px;
-}
-
-.tier-free-input:focus { border-color: var(--ink); }
-.tier-free-input::placeholder { color: var(--muted); }
-
-.tier-success {
-  display: none;
-  text-align: center;
-  padding: 8px 0;
-}
-
-.tier-success-icon { font-size: 20px; margin-bottom: 8px; }
-
-.tier-success-title {
-  font-family: var(--serif);
-  font-size: 16px;
-  font-weight: 400;
-  margin-bottom: 4px;
-}
-
-.tier-success-sub {
-  font-size: 12px;
+.form-note {
+  font-size: 11px;
   color: var(--muted);
-  font-weight: 300;
-  line-height: 1.5;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.tier-paid .tier-success-title { color: var(--bg); }
-.tier-paid .tier-success-sub { color: rgba(247,244,239,0.45); }
+.form-note::before { content: '✦'; color: var(--gold); font-size: 9px; }
 
 .error-msg {
   font-size: 12px;
   color: #ef4444;
-  margin-top: 6px;
+  margin-top: 8px;
   display: none;
 }
 
-/* SECTION LABEL */
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.success-icon {
+  width: 44px;
+  height: 44px;
+  background: #f0faf4;
+  border: 1px solid #a3d9b1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  color: #2d6a4f;
+  font-size: 18px;
+}
+
+.success-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.success-sub {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* SECTION */
 .section-label {
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -332,10 +288,35 @@ h1 em { font-style: italic; }
   background: var(--border2);
 }
 
-/* HOW IT WORKS */
-.how-section { margin-bottom: 88px; }
+/* VISION STATEMENT */
+.vision-section {
+  margin-bottom: 88px;
+}
 
-.steps {
+.vision-statement {
+  font-family: var(--serif);
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.vision-statement em { font-style: italic; color: var(--gold); }
+
+.vision-body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 520px;
+}
+
+/* ROADMAP */
+.roadmap-section { margin-bottom: 88px; }
+
+.roadmap {
   display: flex;
   flex-direction: column;
   gap: 1px;
@@ -345,83 +326,101 @@ h1 em { font-style: italic; }
   overflow: hidden;
 }
 
-.step {
+.roadmap-item {
   background: white;
-  padding: 20px 22px;
+  padding: 22px 24px;
   display: flex;
-  gap: 18px;
+  gap: 20px;
   align-items: flex-start;
-  transition: background 0.15s;
 }
 
-.step:hover { background: #fdfcfa; }
+.roadmap-item.active { background: #fdfcfa; }
 
-.step-num {
-  font-family: var(--serif);
-  font-size: 13px;
-  color: var(--gold);
-  font-style: italic;
-  min-width: 20px;
-  margin-top: 1px;
+.roadmap-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 48px;
+  padding-top: 2px;
 }
 
-.step-body { flex: 1; }
+.roadmap-phase {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
 
-.step-title {
-  font-size: 14px;
+.roadmap-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border2);
+  margin-top: 4px;
+}
+
+.roadmap-item.active .roadmap-dot { background: var(--gold); }
+.roadmap-item.active .roadmap-phase { color: var(--gold); }
+
+.roadmap-body { flex: 1; }
+
+.roadmap-title {
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink);
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
-.step-desc {
+.roadmap-desc {
   font-size: 13px;
   color: var(--muted);
   line-height: 1.65;
   font-weight: 300;
 }
 
-/* COMING SOON */
-.coming-section { margin-bottom: 88px; }
+.roadmap-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-top: 8px;
+  font-weight: 500;
+}
 
-.coming-grid {
+.tag-live { background: #f0faf4; color: #2d6a4f; border: 1px solid #a3d9b1; }
+.tag-building { background: #faeeda; color: #854F0B; border: 1px solid #FAC775; }
+.tag-vision { background: var(--bg); color: var(--muted); border: 1px solid var(--border2); }
+
+/* WHY */
+.why-section { margin-bottom: 88px; }
+
+.why-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
-.coming-card {
+.why-card {
   background: white;
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 16px;
-  opacity: 0.6;
-  transition: opacity 0.2s;
+  padding: 20px;
 }
 
-.coming-card:hover { opacity: 0.85; }
-
-.coming-soon-tag {
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 500;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.coming-title {
-  font-size: 13px;
+.why-title {
+  font-size: 14px;
   font-weight: 500;
   color: var(--ink);
-  margin-bottom: 4px;
+  margin-bottom: 7px;
 }
 
-.coming-desc {
-  font-size: 11px;
+.why-desc {
+  font-size: 12px;
   color: var(--muted);
-  line-height: 1.55;
+  line-height: 1.65;
   font-weight: 300;
 }
 
@@ -429,31 +428,39 @@ h1 em { font-style: italic; }
 .dark-cta {
   background: var(--ink);
   border-radius: 14px;
-  padding: 48px 40px;
+  padding: 52px 40px;
   text-align: center;
   margin-bottom: 80px;
 }
 
 .dark-cta h2 {
   font-family: var(--serif);
-  font-size: clamp(28px, 5vw, 40px);
+  font-size: clamp(26px, 4vw, 38px);
   font-weight: 300;
   letter-spacing: -0.025em;
-  line-height: 1.2;
+  line-height: 1.25;
   color: var(--bg);
-  margin-bottom: 32px;
+  margin-bottom: 10px;
 }
 
 .dark-cta h2 em { font-style: italic; color: var(--gold2); }
 
+.dark-sub {
+  font-size: 14px;
+  color: rgba(247,244,239,0.45);
+  font-weight: 300;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
 .dark-form {
   display: flex;
   gap: 8px;
-  max-width: 400px;
-  margin: 0 auto 10px;
+  max-width: 420px;
+  margin: 0 auto 12px;
 }
 
-.dark-form input[type="email"] {
+.dark-input {
   flex: 1;
   background: rgba(247,244,239,0.1);
   border: 1px solid rgba(247,244,239,0.2);
@@ -468,15 +475,15 @@ h1 em { font-style: italic; }
   -webkit-appearance: none;
 }
 
-.dark-form input[type="email"]:focus { border-color: rgba(247,244,239,0.4); }
-.dark-form input[type="email"]::placeholder { color: rgba(247,244,239,0.35); }
+.dark-input:focus { border-color: rgba(247,244,239,0.4); }
+.dark-input::placeholder { color: rgba(247,244,239,0.35); }
 
-.btn {
-  background: var(--ink);
-  color: var(--bg);
+.btn-gold {
+  background: var(--gold);
+  color: white;
   border: none;
   border-radius: 8px;
-  padding: 13px 20px;
+  padding: 13px 22px;
   font-family: var(--sans);
   font-size: 13px;
   font-weight: 500;
@@ -487,16 +494,16 @@ h1 em { font-style: italic; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-width: 152px;
+  min-width: 160px;
 }
 
-.btn:hover { opacity: 0.85; }
-.btn:active { transform: scale(0.98); }
-.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-gold:hover { opacity: 0.85; }
+.btn-gold:active { transform: scale(0.98); }
+.btn-gold:disabled { opacity: 0.45; cursor: not-allowed; }
 
 .dark-note {
   font-size: 11px;
-  color: rgba(247,244,239,0.35);
+  color: rgba(247,244,239,0.3);
   letter-spacing: 0.03em;
 }
 
@@ -523,10 +530,8 @@ footer {
   letter-spacing: 0.04em;
 }
 
-/* SPINNER */
 .spinner {
-  width: 13px;
-  height: 13px;
+  width: 13px; height: 13px;
   border: 2px solid rgba(247,244,239,0.25);
   border-top-color: var(--bg);
   border-radius: 50%;
@@ -534,10 +539,9 @@ footer {
 }
 
 .spinner-dark {
-  width: 13px;
-  height: 13px;
-  border: 2px solid rgba(26,24,20,0.2);
-  border-top-color: var(--bg);
+  width: 13px; height: 13px;
+  border: 2px solid rgba(26,24,20,0.15);
+  border-top-color: var(--ink);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
@@ -545,12 +549,12 @@ footer {
 @keyframes spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 500px) {
-  .tiers { grid-template-columns: 1fr; }
-  .coming-grid { grid-template-columns: 1fr; }
+  .input-row { flex-direction: column; }
   .dark-form { flex-direction: column; }
-  .btn { width: 100%; }
+  .btn, .btn-gold { width: 100%; }
+  .why-grid { grid-template-columns: 1fr; }
   .dark-cta { padding: 36px 24px; }
-  nav { margin-bottom: 72px; }
+  nav { margin-bottom: 80px; }
 }
 </style>
 </head>
@@ -563,131 +567,113 @@ footer {
   </nav>
 
   <div class="hero">
-    <h1>Fundraising is hard.<br>Finding investors<br><em>doesn't need to be.</em></h1>
-    <p class="hero-body">Matchbook aggregates investor data from across the web so pre-seed founders can find the right investors faster — with thesis fit, portfolio context, and warm paths from their own cap table.</p>
+    <div class="hero-eyebrow">Investor intelligence built for founders</div>
+    <h1>Stop guessing.<br><em>Start raising.</em></h1>
+    <p class="hero-body">The best fundraising outcomes happen when founders walk into the right rooms with the right context. Matchbook is building the platform that makes that possible for every founder — not just the ones with the right network.</p>
   </div>
 
-  <div class="tiers">
-
-    <!-- FREE TIER -->
-    <div class="tier tier-free">
-      <div class="tier-badge">Waitlist</div>
-      <div class="tier-price">Free</div>
-      <div class="tier-desc">Get early access when we launch. First 100 founders in get free access.</div>
-      <div class="tier-features">
-        <div class="tier-feature">Full investor matching on launch</div>
-        <div class="tier-feature">Cap table warm path mapping</div>
-        <div class="tier-feature">Conflict detection & CRM tracker</div>
-      </div>
-      <div id="free-form">
-        <input type="email" class="tier-free-input" id="free-email" placeholder="your@startup.com" />
-        <button class="tier-btn tier-btn-free" onclick="handleFree()">
-          <span id="free-btn-label">Join waitlist →</span>
+  <div class="waitlist-card" id="waitlist-card">
+    <div class="waitlist-title">Join the waitlist</div>
+    <div class="waitlist-sub">We're building in public with a small group of early founders. Join to get first access, shape the product, and lock in founding member pricing.</div>
+    <div id="form-state">
+      <div class="input-row">
+        <input type="email" id="email-main" placeholder="your@startup.com" />
+        <button class="btn" id="main-btn" onclick="handleMain()">
+          <span id="main-label">Get early access →</span>
         </button>
-        <div class="error-msg" id="free-error">Please enter a valid email.</div>
       </div>
-      <div class="tier-success" id="free-success">
-        <div class="tier-success-icon">✓</div>
-        <div class="tier-success-title">You're on the list.</div>
-        <div class="tier-success-sub">We'll reach out when early access opens.</div>
-      </div>
+      <div class="form-note">Free to join · First 100 founders get free access at launch</div>
+      <div class="error-msg" id="main-error">Please enter a valid email address.</div>
     </div>
-
-    <!-- PAID TIER -->
-    <div class="tier tier-paid">
-      <div class="tier-badge">Get it now</div>
-      <div class="tier-price">$29<span>one time</span></div>
-      <div class="tier-desc">Submit your startup. Get a hand-researched report of your 5 best-fit investors — delivered to your inbox within 24 hours.</div>
-      <div class="tier-features">
-        <div class="tier-feature">5 investors matched to your thesis</div>
-        <div class="tier-feature">Portfolio context & check size data</div>
-        <div class="tier-feature">Warm path & outreach notes included</div>
-      </div>
-      <div id="paid-form">
-        <input type="text" class="tier-input" id="paid-url" placeholder="your startup URL" />
-        <input type="email" class="tier-input" id="paid-email" placeholder="your@startup.com" />
-        <button class="tier-btn tier-btn-paid" onclick="handlePaid()">
-          <span id="paid-btn-label">Get my report — $29 →</span>
-        </button>
-        <div class="error-msg" id="paid-error" style="color:#fca5a5;">Please fill in both fields.</div>
-      </div>
-      <div class="tier-success" id="paid-success">
-        <div class="tier-success-icon">✓</div>
-        <div class="tier-success-title" style="color:var(--bg);">You're in.</div>
-        <div class="tier-success-sub">Your investor report lands in your inbox within 24 hours.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- HOW IT WORKS -->
-  <div class="how-section">
-    <div class="section-label">How it works</div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <div class="step-title">Tell us about your startup</div>
-          <div class="step-desc">Drop your URL and we pull the context — sector, stage, geography. No lengthy forms.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <div class="step-title">We do the research</div>
-          <div class="step-desc">We aggregate data from Crunchbase, LinkedIn, Pitchbook, and more — pulling thesis, recent deals, check sizes, and portfolio into one view.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <div class="step-title">Get a shortlist built for you</div>
-          <div class="step-desc">Ranked by fit. Filtered for conflicts. Mapped to warm paths through your existing cap table. Not a generic list — yours.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-body">
-          <div class="step-title">Go into every meeting prepared</div>
-          <div class="step-desc">Know what each investor has backed, what they care about, and exactly why you're relevant to them before you send a single email.</div>
-        </div>
-      </div>
+    <div class="success-state" id="main-success">
+      <div class="success-icon">✓</div>
+      <div class="success-title">You're on the list.</div>
+      <div class="success-sub">We'll be in touch soon. Expect early access before anyone else.</div>
     </div>
   </div>
 
-  <!-- COMING SOON -->
-  <div class="coming-section">
-    <div class="section-label">Coming soon</div>
-    <div class="coming-grid">
-      <div class="coming-card">
-        <span class="coming-soon-tag">In development</span>
-        <div class="coming-title">Chrome extension</div>
-        <div class="coming-desc">Visit any founder's LinkedIn and instantly see who has invested in them.</div>
+  <div class="vision-section">
+    <div class="section-label">The vision</div>
+    <div class="vision-statement">The best investors aren't hard to find.<br>They're hard to <em>reach.</em></div>
+    <p class="vision-body">Every year, great founders miss the right investors because they don't have the context, the connection, or the confidence to reach out. Matchbook is building the platform that changes that — intelligence first, then the trusted network that makes warm introductions accessible to every founder at every stage.</p>
+  </div>
+
+  <div class="roadmap-section">
+    <div class="section-label">Where we're going</div>
+    <div class="roadmap">
+
+      <div class="roadmap-item active">
+        <div class="roadmap-marker">
+          <div class="roadmap-phase">Now</div>
+          <div class="roadmap-dot"></div>
+        </div>
+        <div class="roadmap-body">
+          <div class="roadmap-title">Investor intelligence</div>
+          <div class="roadmap-desc">Know which investors are actively writing checks in your space, their thesis, recent deals, check sizes, and the shortest path to them through your existing network.</div>
+          <span class="roadmap-tag tag-live">Live</span>
+        </div>
       </div>
-      <div class="coming-card">
-        <span class="coming-soon-tag">In development</span>
-        <div class="coming-title">Monthly plan</div>
-        <div class="coming-desc">Live investor database with real-time updates on new deals and fund activity.</div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-marker">
+          <div class="roadmap-phase">Next</div>
+          <div class="roadmap-dot"></div>
+        </div>
+        <div class="roadmap-body">
+          <div class="roadmap-title">Raise CRM</div>
+          <div class="roadmap-desc">Track every investor conversation, follow-up reminders, term sheet pipeline, and investor updates — all in one place. The tool you use through your entire raise, not just the start of it.</div>
+          <span class="roadmap-tag tag-building">Building</span>
+        </div>
       </div>
-      <div class="coming-card">
-        <span class="coming-soon-tag">In development</span>
-        <div class="coming-title">Raise CRM</div>
-        <div class="coming-desc">Track every investor you've reached out to. Never lose momentum mid-raise.</div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-marker">
+          <div class="roadmap-phase">Vision</div>
+          <div class="roadmap-dot"></div>
+        </div>
+        <div class="roadmap-body">
+          <div class="roadmap-title">The trusted intro network</div>
+          <div class="roadmap-desc">Matchbook-verified introductions between founders and investors — where both sides trust the match. The layer that makes warm intros accessible to every founder, not just the ones with the right network.</div>
+          <span class="roadmap-tag tag-vision">The destination</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="why-section">
+    <div class="section-label">Why now</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-title">The tools don't exist at pre-seed</div>
+        <div class="why-desc">Pitchbook and Crunchbase Pro cost $500+/month and were built for VCs doing due diligence, not founders trying to find their first check. Nothing has been built for the earliest stage.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-title">Warm intros convert at 10x</div>
+        <div class="why-desc">A cold email to a VC converts at under 1%. A warm intro from a trusted source converts at 30-40%. The gap between founders who have the network and those who don't has never been wider.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-title">Built by insiders</div>
+        <div class="why-desc">We work inside pre-seed VC. We see deal flow every day, know which investors are actively deploying, and understand exactly what makes a founder-investor fit work. We built this because great founders kept missing the right people.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-title">Access shouldn't be a function of network</div>
+        <div class="why-desc">The founders who most need help connecting with investors are often the ones furthest from the traditional VC hubs. Matchbook is building the infrastructure to change that.</div>
       </div>
     </div>
   </div>
 
-  <!-- DARK CTA -->
   <div class="dark-cta">
-    <h2>Your next investor<br>is <em>already out there.</em></h2>
+    <h2>Early-stage fundraising<br>is about to get <em>easier.</em></h2>
+    <p class="dark-sub">Join the founders helping us build it.</p>
     <div class="dark-form">
-      <input type="email" id="email-input-2" placeholder="your@startup.com" />
-      <button class="btn" style="background:var(--gold);color:white;" id="submit-btn-2" onclick="handleSignup2()">
-        <span id="btn-label-2">Get early access →</span>
+      <input type="email" class="dark-input" id="email-bottom" placeholder="your@startup.com" />
+      <button class="btn-gold" id="bottom-btn" onclick="handleBottom()">
+        <span id="bottom-label">Join the waitlist →</span>
       </button>
     </div>
-    <div class="dark-note">Free to join · No spam · Unsubscribe anytime</div>
-    <div id="success-2" style="display:none;margin-top:14px;font-size:13px;color:rgba(247,244,239,0.6);font-weight:300;">You're on the list. We'll be in touch ✓</div>
+    <div class="dark-note">Free · No spam · Unsubscribe anytime</div>
+    <div id="bottom-success" style="display:none;margin-top:16px;font-size:13px;color:rgba(247,244,239,0.55);font-weight:300;">You're on the list. We'll be in touch ✓</div>
   </div>
 
   <footer>
@@ -699,7 +685,6 @@ footer {
 
 <script>
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbx_2O-vC3xCclR8MHzoI7JMh00NWGh6DqJCq5-h1fUthTGXKc1kKCJFQsfeKyY-3a-_-w/exec';
-const STRIPE_LINK = 'https://buy.stripe.com/eVqbJ23KO1QE3P27mE3Je01';
 
 function isValidEmail(e) {
   return e.includes('@') && e.includes('.') && e.length > 5;
@@ -716,54 +701,37 @@ async function submitToSheet(data) {
   } catch(e) {}
 }
 
-function handleFree() {
-  const email = document.getElementById('free-email').value.trim();
-  const error = document.getElementById('free-error');
-  const label = document.getElementById('free-btn-label');
+function handleMain() {
+  const email = document.getElementById('email-main').value.trim();
+  const error = document.getElementById('main-error');
+  const label = document.getElementById('main-label');
   error.style.display = 'none';
   if (!isValidEmail(email)) { error.style.display = 'block'; return; }
+  document.getElementById('main-btn').disabled = true;
   label.innerHTML = '<span class="spinner-dark"></span>';
-  submitToSheet({ email, type: 'waitlist' });
+  submitToSheet({ email, type: 'waitlist', source: 'hero' });
   setTimeout(() => {
-    document.getElementById('free-form').style.display = 'none';
-    document.getElementById('free-success').style.display = 'block';
+    document.getElementById('form-state').style.display = 'none';
+    document.getElementById('main-success').style.display = 'block';
   }, 800);
 }
 
-function handlePaid() {
-  const url = document.getElementById('paid-url').value.trim();
-  const email = document.getElementById('paid-email').value.trim();
-  const error = document.getElementById('paid-error');
-  const label = document.getElementById('paid-btn-label');
-  error.style.display = 'none';
-  if (!url || !isValidEmail(email)) { error.style.display = 'block'; return; }
-  label.innerHTML = '<span class="spinner"></span>';
-  submitToSheet({ email, url, type: 'paid' });
-  setTimeout(() => {
-    window.open(STRIPE_LINK + '?prefilled_email=' + encodeURIComponent(email), '_blank');
-    document.getElementById('paid-form').style.display = 'none';
-    document.getElementById('paid-success').style.display = 'block';
-  }, 800);
-}
-
-function handleSignup2() {
-  const email = document.getElementById('email-input-2').value.trim();
-  const btn = document.getElementById('submit-btn-2');
-  const label = document.getElementById('btn-label-2');
+function handleBottom() {
+  const email = document.getElementById('email-bottom').value.trim();
+  const label = document.getElementById('bottom-label');
   if (!isValidEmail(email)) return;
-  btn.disabled = true;
+  document.getElementById('bottom-btn').disabled = true;
   label.innerHTML = '<span class="spinner"></span>';
-  submitToSheet({ email, type: 'waitlist' });
+  submitToSheet({ email, type: 'waitlist', source: 'bottom' });
   setTimeout(() => {
     label.textContent = "You're on the list ✓";
-    btn.style.background = '#2d6a4f';
-    document.getElementById('success-2').style.display = 'block';
+    document.getElementById('bottom-btn').style.background = '#2d6a4f';
+    document.getElementById('bottom-success').style.display = 'block';
   }, 800);
 }
 
-document.getElementById('free-email').addEventListener('keydown', e => { if (e.key === 'Enter') handleFree(); });
-document.getElementById('paid-email').addEventListener('keydown', e => { if (e.key === 'Enter') handlePaid(); });
-document.getElementById('email-input-2').addEventListener('keydown', e => { if (e.key === 'Enter') handleSignup2(); });
+document.getElementById('email-main').addEventListener('keydown', e => { if (e.key === 'Enter') handleMain(); });
+document.getElementById('email-bottom').addEventListener('keydown', e => { if (e.key === 'Enter') handleBottom(); });
 </script>
 </body>
 </html>
