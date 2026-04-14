@@ -57,7 +57,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 32px 0 0;
-  margin-bottom: 120px;
+  margin-bottom: 100px;
 }
 
 .logo {
@@ -76,6 +76,12 @@ nav {
   margin-left: 2px;
   vertical-align: middle;
   margin-bottom: 3px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
 }
 
 .nav-badge {
@@ -89,7 +95,7 @@ nav {
 }
 
 /* HERO */
-.hero { margin-bottom: 64px; }
+.hero { margin-bottom: 48px; }
 
 .hero-eyebrow {
   font-size: 11px;
@@ -101,6 +107,8 @@ nav {
   display: flex;
   align-items: center;
   gap: 10px;
+  opacity: 0;
+  animation: fadeUp 0.5s ease forwards 0.1s;
 }
 
 .hero-eyebrow::before {
@@ -117,18 +125,93 @@ h1 {
   font-weight: 300;
   line-height: 1.02;
   letter-spacing: -0.03em;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.2s;
 }
 
 h1 em { font-style: italic; }
 
-.hero-body {
-  font-size: 16px;
-  line-height: 1.85;
-  color: var(--ink2);
-  max-width: 520px;
+/* DYNAMIC SUBTITLE */
+.hero-dynamic {
+  font-size: 18px;
   font-weight: 300;
-  margin-bottom: 48px;
+  color: var(--ink2);
+  margin-bottom: 16px;
+  min-height: 28px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.35s;
+}
+
+.hero-dynamic .typed-text { color: var(--ink); }
+.hero-dynamic .cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--gold);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 0.9s step-end infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+.hero-body {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 480px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.45s;
+}
+
+/* SOCIAL PROOF BAR */
+.proof-bar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.5s;
+}
+
+.proof-avatars {
+  display: flex;
+  margin-right: 12px;
+}
+
+.proof-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -8px;
+  letter-spacing: 0;
+}
+
+.proof-avatar:first-child { margin-left: 0; }
+.proof-avatar:nth-child(2) { background: #3d3a35; }
+.proof-avatar:nth-child(3) { background: var(--gold); }
+.proof-avatar:nth-child(4) { background: #5a5650; }
+.proof-avatar:nth-child(5) { background: #2d2a26; }
+
+.proof-text {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.proof-text strong {
+  color: var(--ink);
+  font-weight: 500;
 }
 
 /* WAITLIST */
@@ -137,10 +220,12 @@ h1 em { font-style: italic; }
   border: 1px solid var(--border2);
   border-radius: 14px;
   padding: 32px;
-  margin-bottom: 100px;
+  margin-bottom: 72px;
   box-shadow: 0 1px 32px rgba(26,24,20,0.05);
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.6s;
 }
 
 .waitlist-card::before {
@@ -268,6 +353,40 @@ input::placeholder { color: var(--muted); }
   font-weight: 300;
 }
 
+/* QUOTES */
+.quotes-section {
+  margin-bottom: 72px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.7s;
+}
+
+.quotes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quote-card {
+  border-left: 2px solid var(--gold);
+  padding: 4px 0 4px 20px;
+}
+
+.quote-text {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.quote-attr {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
 /* SECTION */
 .section-label {
   font-size: 11px;
@@ -289,9 +408,7 @@ input::placeholder { color: var(--muted); }
 }
 
 /* VISION STATEMENT */
-.vision-section {
-  margin-bottom: 88px;
-}
+.vision-section { margin-bottom: 88px; }
 
 .vision-statement {
   font-family: var(--serif);
@@ -361,7 +478,7 @@ input::placeholder { color: var(--muted); }
   margin-top: 4px;
 }
 
-.roadmap-item.active .roadmap-dot { background: var(--gold); }
+.roadmap-item.active .roadmap-dot { background: var(--gold); animation: pulse 2s ease-in-out infinite; }
 .roadmap-item.active .roadmap-phase { color: var(--gold); }
 
 .roadmap-body { flex: 1; }
@@ -547,6 +664,10 @@ footer {
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @media (max-width: 500px) {
   .input-row { flex-direction: column; }
@@ -568,13 +689,29 @@ footer {
 
   <div class="hero">
     <div class="hero-eyebrow">Investor intelligence built for founders</div>
-    <h1>Stop guessing.<br><em>Start raising.</em></h1>
-    <p class="hero-body">The best fundraising outcomes happen when founders walk into the right rooms with the right context. Matchbook is building the platform that makes that possible for every founder — not just the ones with the right network.</p>
+    <h1>You build.<br><em>We handle the raise.</em></h1>
+
+    <div class="hero-dynamic">
+      Find the right investors for <span class="typed-text" id="typed"></span><span class="cursor"></span>
+    </div>
+
+    <p class="hero-body">Know exactly who to talk to, how to get warm, and when to move — without spending weeks on research or cold emails that go nowhere.</p>
+
+    <div class="proof-bar">
+      <div class="proof-avatars">
+        <div class="proof-avatar">LE</div>
+        <div class="proof-avatar">TK</div>
+        <div class="proof-avatar">MR</div>
+        <div class="proof-avatar">AS</div>
+        <div class="proof-avatar">+</div>
+      </div>
+      <div class="proof-text"><strong>10+ founders</strong> already on the waitlist</div>
+    </div>
   </div>
 
   <div class="waitlist-card" id="waitlist-card">
     <div class="waitlist-title">Join the waitlist</div>
-    <div class="waitlist-sub">We're building in public with a small group of early founders. Join to get first access, shape the product, and lock in founding member pricing.</div>
+    <div class="waitlist-sub">First 100 founders get founding member pricing. We're building with you — join to get early access and shape the product.</div>
     <div id="form-state">
       <div class="input-row">
         <input type="email" id="email-main" placeholder="your@startup.com" />
@@ -582,7 +719,7 @@ footer {
           <span id="main-label">Get early access →</span>
         </button>
       </div>
-      <div class="form-note">Free to join · First 100 founders get free access at launch</div>
+      <div class="form-note">Free to join · No spam · Unsubscribe anytime</div>
       <div class="error-msg" id="main-error">Please enter a valid email address.</div>
     </div>
     <div class="success-state" id="main-success">
@@ -595,6 +732,24 @@ footer {
     </div>
   </div>
 
+  <div class="quotes-section">
+    <div class="section-label">What founders are saying</div>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <div class="quote-text">"75% of our intros go to a term sheet. I would pay for that — a lot."</div>
+        <div class="quote-attr">Lionel E., pre-seed founder</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"Kind of like Clay for fundraising."</div>
+        <div class="quote-attr">Talik, founder</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"Genuinely useful tool built by someone who has been through fundraising."</div>
+        <div class="quote-attr">Anonymous founder</div>
+      </div>
+    </div>
+  </div>
+
   <div class="vision-section">
     <div class="section-label">The vision</div>
     <div class="vision-statement">The best investors aren't hard to find.<br>They're hard to <em>reach.</em></div>
@@ -604,7 +759,6 @@ footer {
   <div class="roadmap-section">
     <div class="section-label">Where we're going</div>
     <div class="roadmap">
-
       <div class="roadmap-item active">
         <div class="roadmap-marker">
           <div class="roadmap-phase">Now</div>
@@ -616,7 +770,6 @@ footer {
           <span class="roadmap-tag tag-live">Live</span>
         </div>
       </div>
-
       <div class="roadmap-item">
         <div class="roadmap-marker">
           <div class="roadmap-phase">Next</div>
@@ -624,11 +777,10 @@ footer {
         </div>
         <div class="roadmap-body">
           <div class="roadmap-title">Raise CRM</div>
-          <div class="roadmap-desc">Track every investor conversation, follow-up reminders, term sheet pipeline, and investor updates — all in one place. The tool you use through your entire raise, not just the start of it.</div>
+          <div class="roadmap-desc">Track every investor conversation, follow-up reminders, term sheet pipeline, and investor updates — all in one place.</div>
           <span class="roadmap-tag tag-building">Building</span>
         </div>
       </div>
-
       <div class="roadmap-item">
         <div class="roadmap-marker">
           <div class="roadmap-phase">Vision</div>
@@ -636,11 +788,10 @@ footer {
         </div>
         <div class="roadmap-body">
           <div class="roadmap-title">The trusted intro network</div>
-          <div class="roadmap-desc">Matchbook-verified introductions between founders and investors — where both sides trust the match. The layer that makes warm intros accessible to every founder, not just the ones with the right network.</div>
+          <div class="roadmap-desc">Matchbook-verified introductions between founders and investors — where both sides trust the match.</div>
           <span class="roadmap-tag tag-vision">The destination</span>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -649,19 +800,19 @@ footer {
     <div class="why-grid">
       <div class="why-card">
         <div class="why-title">The tools don't exist at pre-seed</div>
-        <div class="why-desc">Pitchbook and Crunchbase Pro cost $500+/month and were built for VCs doing due diligence, not founders trying to find their first check. Nothing has been built for the earliest stage.</div>
+        <div class="why-desc">Pitchbook and Crunchbase Pro cost $500+/month and were built for VCs, not founders. Nothing has been built for the earliest stage.</div>
       </div>
       <div class="why-card">
         <div class="why-title">Warm intros convert at 10x</div>
-        <div class="why-desc">A cold email to a VC converts at under 1%. A warm intro from a trusted source converts at 30-40%. The gap between founders who have the network and those who don't has never been wider.</div>
+        <div class="why-desc">A cold email to a VC converts at under 1%. A warm intro converts at 30–40%. The gap between founders who have the network and those who don't has never been wider.</div>
       </div>
       <div class="why-card">
         <div class="why-title">Built by insiders</div>
-        <div class="why-desc">We work inside pre-seed VC. We see deal flow every day, know which investors are actively deploying, and understand exactly what makes a founder-investor fit work. We built this because great founders kept missing the right people.</div>
+        <div class="why-desc">We work inside pre-seed VC. We see dealflow every day and understand exactly what makes a founder-investor fit work.</div>
       </div>
       <div class="why-card">
-        <div class="why-title">Access shouldn't be a function of network</div>
-        <div class="why-desc">The founders who most need help connecting with investors are often the ones furthest from the traditional VC hubs. Matchbook is building the infrastructure to change that.</div>
+        <div class="why-title">Access shouldn't require network</div>
+        <div class="why-desc">The founders who most need help connecting with investors are often furthest from the traditional VC hubs. Matchbook is building the infrastructure to change that.</div>
       </div>
     </div>
   </div>
@@ -735,6 +886,48 @@ function handleBottom() {
 
 document.getElementById('email-main').addEventListener('keydown', e => { if (e.key === 'Enter') handleMain(); });
 document.getElementById('email-bottom').addEventListener('keydown', e => { if (e.key === 'Enter') handleBottom(); });
+
+// Typing animation
+const phrases = [
+  'your Series A.',
+  'your pre-seed round.',
+  'deep tech.',
+  'consumer brands.',
+  'B2B SaaS.',
+  'climate tech.',
+  'your next raise.',
+];
+
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typedEl = document.getElementById('typed');
+
+function type() {
+  const current = phrases[phraseIndex];
+  if (isDeleting) {
+    typedEl.textContent = current.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    typedEl.textContent = current.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  let delay = isDeleting ? 40 : 70;
+
+  if (!isDeleting && charIndex === current.length) {
+    delay = 1800;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    delay = 300;
+  }
+
+  setTimeout(type, delay);
+}
+
+setTimeout(type, 1200);
 </script>
 </body>
 </html>
